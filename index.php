@@ -1,4 +1,4 @@
-<?php
+<?php //second week
 
 if(!empty($_SERVER["HTTPS"]) and $_SERVER["HTTPS"] == "on")
 {
