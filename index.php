@@ -1,15 +1,15 @@
-<?php //second week
+<?php
+	if (!empty($_SERVER['HTTPS']) && ('on' == $_SERVER['HTTPS'])) {
+		$uri = 'https://';
+	} else {
+		$uri = 'http://';
+	}
+	$uri .= $_SERVER['HTTP_HOST'];
+	header('Location: '.$uri.'/main/');
+	exit;
+?>
+Something went wrong :/ 
 
-if(!empty($_SERVER["HTTPS"]) and $_SERVER["HTTPS"] == "on")
-{
-  $uri = 'https://';
-}
-else
-{
-  $uri = 'http://';
-}
-$uri .= $_SERVER["HTTP_HOST"];
-header("Location: ".$uri.'/login/');
-exit();
+TRY TO RELOAD
 
 //it work only in apache, idk how to make it work not in apache like there
