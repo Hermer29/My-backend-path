@@ -1,0 +1,315 @@
+{
+    "php_classes": {
+        "\\ActionException": {
+            "constants": {
+            },
+            "file": "/storage/emulated/0/(a) Main Folder/Работающие проекты/Проект на MVC 0.1/core/exceptions.php",
+            "interfaces": {
+            },
+            "isAbstract": false,
+            "isInterface": false,
+            "isTrait": false,
+            "line": 6,
+            "methods": {
+            },
+            "name": "\\ActionException",
+            "parent": "\\Exception",
+            "properties": {
+            }
+        },
+        "\\Controller": {
+            "constants": {
+            },
+            "file": "/storage/emulated/0/(a) Main Folder/Работающие проекты/Проект на MVC 0.1/core/controller.php",
+            "interfaces": {
+            },
+            "isAbstract": false,
+            "isInterface": false,
+            "isTrait": false,
+            "line": 5,
+            "methods": {
+                "__construct": {
+                    "args": "",
+                    "comment": "",
+                    "file": "/storage/emulated/0/(a) Main Folder/Работающие проекты/Проект на MVC 0.1/core/controller.php",
+                    "isAbstract": false,
+                    "isStatic": false,
+                    "line": 9,
+                    "name": "__construct",
+                    "return_type": "",
+                    "synopsis": "__construct()",
+                    "visibility": "public"
+                },
+                "index_action": {
+                    "args": "",
+                    "comment": "",
+                    "file": "/storage/emulated/0/(a) Main Folder/Работающие проекты/Проект на MVC 0.1/core/controller.php",
+                    "isAbstract": false,
+                    "isStatic": false,
+                    "line": 14,
+                    "name": "index_action",
+                    "return_type": "",
+                    "synopsis": "index_action()",
+                    "visibility": "public"
+                }
+            },
+            "name": "\\Controller",
+            "parent": "",
+            "properties": {
+                "$view": {
+                    "file": "/storage/emulated/0/(a) Main Folder/Работающие проекты/Проект на MVC 0.1/core/controller.php",
+                    "line": 7,
+                    "name": "$view",
+                    "type": "\\View",
+                    "visibility": "public"
+                }
+            }
+        },
+        "\\ControllerException": {
+            "constants": {
+            },
+            "file": "/storage/emulated/0/(a) Main Folder/Работающие проекты/Проект на MVC 0.1/core/exceptions.php",
+            "interfaces": {
+            },
+            "isAbstract": false,
+            "isInterface": false,
+            "isTrait": false,
+            "line": 3,
+            "methods": {
+            },
+            "name": "\\ControllerException",
+            "parent": "\\Exception",
+            "properties": {
+            }
+        },
+        "\\Model": {
+            "constants": {
+            },
+            "file": "/storage/emulated/0/(a) Main Folder/Работающие проекты/Проект на MVC 0.1/core/model.php",
+            "interfaces": {
+            },
+            "isAbstract": false,
+            "isInterface": false,
+            "isTrait": false,
+            "line": 3,
+            "methods": {
+                "get_data": {
+                    "args": "",
+                    "comment": "",
+                    "file": "/storage/emulated/0/(a) Main Folder/Работающие проекты/Проект на MVC 0.1/core/model.php",
+                    "isAbstract": false,
+                    "isStatic": false,
+                    "line": 5,
+                    "name": "get_data",
+                    "return_type": "",
+                    "synopsis": "get_data()",
+                    "visibility": "public"
+                }
+            },
+            "name": "\\Model",
+            "parent": "",
+            "properties": {
+            }
+        },
+        "\\Router": {
+            "constants": {
+            },
+            "file": "/storage/emulated/0/(a) Main Folder/Работающие проекты/Проект на MVC 0.1/core/route.php",
+            "interfaces": {
+            },
+            "isAbstract": false,
+            "isInterface": false,
+            "isTrait": false,
+            "line": 4,
+            "methods": {
+                "find_action": {
+                    "args": "string $action, \\Controller $controller",
+                    "comment": "",
+                    "file": "/storage/emulated/0/(a) Main Folder/Работающие проекты/Проект на MVC 0.1/core/route.php",
+                    "isAbstract": false,
+                    "isStatic": false,
+                    "line": 43,
+                    "name": "find_action",
+                    "return_type": "",
+                    "synopsis": "find_action ( string $action, \\Controller $controller )",
+                    "visibility": "public"
+                },
+                "find_controller": {
+                    "args": "string $controller",
+                    "comment": "",
+                    "file": "/storage/emulated/0/(a) Main Folder/Работающие проекты/Проект на MVC 0.1/core/route.php",
+                    "isAbstract": false,
+                    "isStatic": false,
+                    "line": 57,
+                    "name": "find_controller",
+                    "return_type": "",
+                    "synopsis": "find_controller ( string $controller )",
+                    "visibility": "public"
+                },
+                "find_route": {
+                    "args": "",
+                    "comment": "",
+                    "file": "/storage/emulated/0/(a) Main Folder/Работающие проекты/Проект на MVC 0.1/core/route.php",
+                    "isAbstract": false,
+                    "isStatic": false,
+                    "line": 6,
+                    "name": "find_route",
+                    "return_type": "",
+                    "synopsis": "find_route()",
+                    "visibility": "public"
+                }
+            },
+            "name": "\\Router",
+            "parent": "",
+            "properties": {
+            }
+        },
+        "\\View": {
+            "constants": {
+            },
+            "file": "/storage/emulated/0/(a) Main Folder/Работающие проекты/Проект на MVC 0.1/core/view.php",
+            "interfaces": {
+            },
+            "isAbstract": false,
+            "isInterface": false,
+            "isTrait": false,
+            "line": 3,
+            "methods": {
+                "generate": {
+                    "args": "mixed $filename, mixed $data",
+                    "comment": "",
+                    "file": "/storage/emulated/0/(a) Main Folder/Работающие проекты/Проект на MVC 0.1/core/view.php",
+                    "isAbstract": false,
+                    "isStatic": false,
+                    "line": 5,
+                    "name": "generate",
+                    "return_type": "",
+                    "synopsis": "generate ( mixed $filename, mixed $data )",
+                    "visibility": "public"
+                }
+            },
+            "name": "\\View",
+            "parent": "",
+            "properties": {
+            }
+        },
+        "\\error_controller": {
+            "constants": {
+            },
+            "file": "/storage/emulated/0/(a) Main Folder/Работающие проекты/Проект на MVC 0.1/controllers/error_controller.php",
+            "interfaces": {
+            },
+            "isAbstract": false,
+            "isInterface": false,
+            "isTrait": false,
+            "line": 4,
+            "methods": {
+                "err404_action": {
+                    "args": "",
+                    "comment": "",
+                    "file": "/storage/emulated/0/(a) Main Folder/Работающие проекты/Проект на MVC 0.1/controllers/error_controller.php",
+                    "isAbstract": false,
+                    "isStatic": false,
+                    "line": 6,
+                    "name": "err404_action",
+                    "return_type": "",
+                    "synopsis": "err404_action()",
+                    "visibility": "public"
+                }
+            },
+            "name": "\\error_controller",
+            "parent": "\\Controller",
+            "properties": {
+            }
+        },
+        "\\main_controller": {
+            "constants": {
+            },
+            "file": "/storage/emulated/0/(a) Main Folder/Работающие проекты/Проект на MVC 0.1/controllers/main_controller.php",
+            "interfaces": {
+            },
+            "isAbstract": false,
+            "isInterface": false,
+            "isTrait": false,
+            "line": 4,
+            "methods": {
+                "index_action": {
+                    "args": "",
+                    "comment": "Must include view file",
+                    "file": "/storage/emulated/0/(a) Main Folder/Работающие проекты/Проект на MVC 0.1/controllers/main_controller.php",
+                    "isAbstract": false,
+                    "isStatic": false,
+                    "line": 7,
+                    "name": "index_action",
+                    "return_type": "",
+                    "synopsis": "index_action()",
+                    "visibility": "public"
+                },
+                "login_action": {
+                    "args": "",
+                    "comment": "",
+                    "file": "/storage/emulated/0/(a) Main Folder/Работающие проекты/Проект на MVC 0.1/controllers/main_controller.php",
+                    "isAbstract": false,
+                    "isStatic": false,
+                    "line": 16,
+                    "name": "login_action",
+                    "return_type": "",
+                    "synopsis": "login_action()",
+                    "visibility": "public"
+                }
+            },
+            "name": "\\main_controller",
+            "parent": "\\Controller",
+            "properties": {
+            }
+        },
+        "\\main_model": {
+            "constants": {
+            },
+            "file": "/storage/emulated/0/(a) Main Folder/Работающие проекты/Проект на MVC 0.1/models/main_model.php",
+            "interfaces": {
+            },
+            "isAbstract": false,
+            "isInterface": false,
+            "isTrait": false,
+            "line": 5,
+            "methods": {
+                "get_data": {
+                    "args": "",
+                    "comment": "",
+                    "file": "/storage/emulated/0/(a) Main Folder/Работающие проекты/Проект на MVC 0.1/models/main_model.php",
+                    "isAbstract": false,
+                    "isStatic": false,
+                    "line": 7,
+                    "name": "get_data",
+                    "return_type": "",
+                    "synopsis": "get_data()",
+                    "visibility": "public"
+                }
+            },
+            "name": "\\main_model",
+            "parent": "\\Model",
+            "properties": {
+            }
+        }
+    },
+    "php_consts": {
+    },
+    "php_files": {
+        "/storage/emulated/0/(a) Main Folder/Работающие проекты/Проект на MVC 0.1/controllers/error_controller.php": "1602143269807",
+        "/storage/emulated/0/(a) Main Folder/Работающие проекты/Проект на MVC 0.1/controllers/main_controller.php": "1602080214871",
+        "/storage/emulated/0/(a) Main Folder/Работающие проекты/Проект на MVC 0.1/core/controller.php": "1602046119513",
+        "/storage/emulated/0/(a) Main Folder/Работающие проекты/Проект на MVC 0.1/core/exceptions.php": "1602132413888",
+        "/storage/emulated/0/(a) Main Folder/Работающие проекты/Проект на MVC 0.1/core/model.php": "1601881836629",
+        "/storage/emulated/0/(a) Main Folder/Работающие проекты/Проект на MVC 0.1/core/route.php": "1602141451489",
+        "/storage/emulated/0/(a) Main Folder/Работающие проекты/Проект на MVC 0.1/core/view.php": "1602063532559",
+        "/storage/emulated/0/(a) Main Folder/Работающие проекты/Проект на MVC 0.1/index.php": "1602104842041",
+        "/storage/emulated/0/(a) Main Folder/Работающие проекты/Проект на MVC 0.1/models/main_model.php": "1601912959593",
+        "/storage/emulated/0/(a) Main Folder/Работающие проекты/Проект на MVC 0.1/views/errorpage_view.php": "1602143454647",
+        "/storage/emulated/0/(a) Main Folder/Работающие проекты/Проект на MVC 0.1/views/main_view.php": "1602088018550"
+    },
+    "php_functions": {
+    },
+    "php_globals": {
+    }
+}

@@ -1,0 +1,13 @@
+.header {
+    position: absolute;
+    height: 90px;
+    width: 100%;
+    background-color: silver;
+}
+.theme-changer {
+    position: static;
+    border: none;
+    background-color:lightslategrey;
+    text-decoration: none;
+    padding: 30px 30px;
+}

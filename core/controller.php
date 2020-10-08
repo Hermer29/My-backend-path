@@ -2,7 +2,14 @@
 
 class Controller
 {
-	public function IndexAction()
+	public $view;
+
+	public function __construct()
+	{
+		$this->view = new View;
+	}
+	
+	public function index_action()
 	{
 		;
 	}
