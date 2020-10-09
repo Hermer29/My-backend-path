@@ -1,5 +1,8 @@
-<?php
 
+<!doctype html>
+<html>
+
+<?php
 class View
 {
 	public function generate($pattern,$filename,$data)
@@ -27,3 +30,5 @@ class View
 		$_SESSION["data"] = $data;
 	}
 }
+?>
+</html>

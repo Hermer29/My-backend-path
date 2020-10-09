@@ -8,7 +8,7 @@
 		body{
 			margin: 0;
 		}
-		.allelems{
+		.content{
 			text-align: center;
 		}
 		.errorcode{
@@ -22,7 +22,7 @@
 		}
 	</style>
 	<body>
-		<div class="allelems">
+		<div class="content">
 			<h1 style="text-decoration:underline;">
 				404 ERROR PAGE
 			</h1>

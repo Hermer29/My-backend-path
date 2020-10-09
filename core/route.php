@@ -1,9 +1,9 @@
 <?php
 include("core/exceptions.php");
 
-class Router
+static class Router
 {
-	public function find_route()
+	public static function find_route()
 	{
 		try
 		{
@@ -51,14 +51,14 @@ class Router
 		}
 
 	}
-		public function index()
+		private static function index()
 		{
 			include("controllers/main_controller.php");
 			$controller_instance = new main_controller();
 			$controller_instance -> index_action();
 		}
 
-		public function find_action(string $action, Controller $controller)
+		private static function find_action(string $action, Controller $controller)
 		{
 			$action_name = $action . "_action";
 			
@@ -76,7 +76,7 @@ class Router
 			}
 		}
 		
-		public function find_controller(string $controller)
+		private static function find_controller(string $controller)
 		{
 			$controller_classname = 
 				strtolower($controller).

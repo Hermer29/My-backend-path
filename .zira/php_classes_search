@@ -1,9 +1,10 @@
 ActionException /storage/emulated/0/(a) Main Folder/Работающие проекты/Проект на MVC 0.1/core/exceptions.php:6
-Controller /storage/emulated/0/(a) Main Folder/Работающие проекты/Проект на MVC 0.1/core/controller.php:5
+BadPatternfileException /storage/emulated/0/(a) Main Folder/Работающие проекты/Проект на MVC 0.1/core/exceptions.php:9
+BadViewfileException /storage/emulated/0/(a) Main Folder/Работающие проекты/Проект на MVC 0.1/core/exceptions.php:12
+Controller /storage/emulated/0/(a) Main Folder/Работающие проекты/Проект на MVC 0.1/core/controller.php:3
 ControllerException /storage/emulated/0/(a) Main Folder/Работающие проекты/Проект на MVC 0.1/core/exceptions.php:3
 Model /storage/emulated/0/(a) Main Folder/Работающие проекты/Проект на MVC 0.1/core/model.php:3
-Router /storage/emulated/0/(a) Main Folder/Работающие проекты/Проект на MVC 0.1/core/route.php:4
-View /storage/emulated/0/(a) Main Folder/Работающие проекты/Проект на MVC 0.1/core/view.php:3
-error_controller /storage/emulated/0/(a) Main Folder/Работающие проекты/Проект на MVC 0.1/controllers/error_controller.php:4
-main_controller /storage/emulated/0/(a) Main Folder/Работающие проекты/Проект на MVC 0.1/controllers/main_controller.php:4
+View /storage/emulated/0/(a) Main Folder/Работающие проекты/Проект на MVC 0.1/core/view.php:6
+error_controller /storage/emulated/0/(a) Main Folder/Работающие проекты/Проект на MVC 0.1/controllers/error_controller.php:3
+main_controller /storage/emulated/0/(a) Main Folder/Работающие проекты/Проект на MVC 0.1/controllers/main_controller.php:3
 main_model /storage/emulated/0/(a) Main Folder/Работающие проекты/Проект на MVC 0.1/models/main_model.php:5
