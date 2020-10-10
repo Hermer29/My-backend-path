@@ -4,17 +4,10 @@
     width: 100%;
     background-color: silver;
 }
-@font-face {
-    font-family: 'Oswald ExtraLight';
-    src: url("/views/css/fonts/Oswald-ExtraLight.ttf");
-}
 .theme-changer {
-    position: absolute;
+    position: static;
     border: none;
-    background:none;
+    background-color:lightslategrey;
     text-decoration: none;
-    font-size: 20px;
-    right: 5px;
-    top: 28px;
-    font-family: 'Oswald ExtraLight';
+    padding: 30px 30px;
 }
