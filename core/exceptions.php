@@ -12,3 +12,5 @@ class BadPatternfileException extends Exception
 class BadViewfileException extends Exception
 {}
 
+class ControllerNotFoundException extends Exception
+{}

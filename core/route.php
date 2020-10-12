@@ -1,35 +1,40 @@
 <?php
 include("core/exceptions.php");
 
-static class Router
+class Router
 {
 	public static function find_route()
 	{
 		try
 		{
-			$uri = explode("/",$_SERVER["REQUEST_URI"]);
-			$controller = $uri[0];
-			$action = $uri[1];
+			$request_uri = $_SERVER['REQUEST_URI'];
 			
-			if($controller == null)
+			$pattern_solo_controller = "#^/\w{4,30}/$#i";
+			$pattern_controller_action = "#^/\w{4,30}/\w{5,200}$#i";
+			if($request_uri == "/")
 			{
 				Router::index();
-				exit;
 			}
-
-			$controller_instance = 
-				Router::find_controller($controller);
-		
-			Router::find_action(
-				$action, 
-				$controller_instance);
-		
-			$model_classname = $controller;
-		
-			$model_filename = 
-				"models/".
-				$model_classname.
-				"_model.php";
+			else if((boolean)preg_match($pattern_solo_controller,$request_uri))
+			{ //If uri has format localhost/controller;
+				$controller = trim($request_uri,"/");
+				
+				$controller_instance = Router::find_controller($controller);
+				$controller_instance -> index_action();
+			}
+			else if((boolean)preg_match($pattern_controller_action,$request_uri))
+			{ //If uri = localhost/controller/action
+				$request_uri = explode($request_uri,"/");
+				$controller  = $request_uri[0];
+				$action      = $request_uri[1];
+				
+				$controller_instance = Router::find_controller($controller);
+				Router::find_action($action,$controller_instance);
+			}
+			else
+			{
+				throw new Exception();
+			}
 		}
 		catch (Exception $e)
 		{
@@ -53,9 +58,8 @@ static class Router
 	}
 		private static function index()
 		{
-			include("controllers/main_controller.php");
-			$controller_instance = new main_controller();
-			$controller_instance -> index_action();
+			header("Location: /main/");
+			exit;
 		}
 
 		private static function find_action(string $action, Controller $controller)
@@ -68,7 +72,7 @@ static class Router
 			}
 			else if($action == null)
 			{
-				return $controller -> index_action;
+				return $controller -> index_action();
 			}
 			else
 			{
@@ -95,7 +99,7 @@ static class Router
 			}
 			else
 			{
-				throw new ControllerException("No such controller in controller's folder");
+				throw new ControllerNotFoundException("No such controller in controller's folder");
 			}
 		}
 

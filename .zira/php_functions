@@ -1,4 +1,0 @@
-find_action ( string $action, \Controller $controller )
-find_controller ( string $controller )
-find_route()
-index()
