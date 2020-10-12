@@ -1,5 +1,4 @@
 <?php
-include("core/exceptions.php");
 
 class Router
 {
@@ -8,10 +7,7 @@ class Router
 		try
 		{
 			$request_uri = $_SERVER['REQUEST_URI'];
-			$request_uri = preg_split("#\/\w#",$request_uri);
-			foreach($request_uri as $elem)
-			echo $elem;
-			exit;
+
 			$pattern_solo_controller = "#^\/\w{4,30}\/$#i";
 			$pattern_controller_action = "#^\/\w{4,30}\/\w{5,200}$#i";
 
@@ -25,38 +21,39 @@ class Router
 				
 				$controller_instance = Router::find_controller($controller);
 				$controller_instance -> index_action();
+
 			}
 			else if((boolean)preg_match($pattern_controller_action,$request_uri))
 			{ //If uri = localhost/controller/action
-				$request_uri = preg_split("#\/\w#",$request_uri);
+				$request_uri = preg_split("#\/#",$request_uri);
 				$controller  = $request_uri[0];
 				$action      = $request_uri[1];
-				
+
 				$controller_instance = Router::find_controller($controller);
 				Router::find_action($action,$controller_instance);
 			}
 			else
 			{
-				throw new Exception();
+				throw new ControllerNotFoundException();
 			}
 		}
 		catch (Exception $e)
 		{
-			include("controllers/error_controller.php");
+			include("application/controllers/error_controller.php");
 			$controller_instance = new error_controller();
 			$error_info = ["TRACE" => $e->getTraceAsString()];
 			
 			if($e instanceof ActionException)
 			{
-				$error_info[] = ["ERROR_CODE" => "ACTION_EXCEPTION"];
+				$error_info = array_merge($error_info,["ERROR_CODE" => "ACTION_EXCEPTION"]);
 			}
 			else if($e instanceof ControllerNotFoundException)
 			{
-				$error_info[] = ["ERROR_CODE" => "CONTROLLER_EXCEPTION"];
+				$error_info = array_merge($error_info,["ERROR_CODE" => "CONTROLLER_EXCEPTION"]);
 			}
 			else
 			{
-				$error_info[] = ["ERROR_CODE" => "UNKNOWN_EXCEPTION"];
+				$error_info = array_merge($error_info,["ERROR_CODE" => "UNKNOWN_EXCEPTION"]);
 			}
 			
 			$controller_instance->index_action($error_info);
@@ -89,15 +86,16 @@ class Router
 		
 		private static function find_controller(string $controller)
 		{
-			$controller_classname = 
+			$controller_classname =
 				strtolower($controller).
 				"_controller";
 
 			$controller_filename  =
-				"/controllers/".
+				"application\\controllers\\".
 				$controller_classname.
 				".php";
-
+			//echo $controller."<br>".$controller_classname."<br>".$controller_filename."<br>".getcwd();
+			//exit;
 			if(file_exists($controller_filename))
 			{
 				include($controller_filename);

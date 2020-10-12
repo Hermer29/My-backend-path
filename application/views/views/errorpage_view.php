@@ -1,3 +1,7 @@
+<?php
+	session_start();
+?>
+
 <!doctype html>
 
 <html>
@@ -27,13 +31,12 @@
 				404 ERROR PAGE
 			</h1>
 			<p>
-				Page doesn't exists
+				Page doesn't exist
 			</p>
 		</div>
 		<div class="errorcode">
 			<?php 
-			$data = $_SESSION["data"];
-			echo $data["ERROR_CODE"]."<br>".$data["TRACE"];
+			echo $_SESSION["data"]["ERROR_CODE"]."<br>".$_SESSION["data"]["TRACE"];
 			?>
 		</div>
 	</body>

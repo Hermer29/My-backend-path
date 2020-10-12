@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 class main_controller extends Controller
 {
 	//Must include view file
