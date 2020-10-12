@@ -8,9 +8,13 @@ class Router
 		try
 		{
 			$request_uri = $_SERVER['REQUEST_URI'];
-			
-			$pattern_solo_controller = "#^/\w{4,30}/$#i";
-			$pattern_controller_action = "#^/\w{4,30}/\w{5,200}$#i";
+			$request_uri = preg_split("#\/\w#",$request_uri);
+			foreach($request_uri as $elem)
+			echo $elem;
+			exit;
+			$pattern_solo_controller = "#^\/\w{4,30}\/$#i";
+			$pattern_controller_action = "#^\/\w{4,30}\/\w{5,200}$#i";
+
 			if($request_uri == "/")
 			{
 				Router::index();
@@ -24,7 +28,7 @@ class Router
 			}
 			else if((boolean)preg_match($pattern_controller_action,$request_uri))
 			{ //If uri = localhost/controller/action
-				$request_uri = explode($request_uri,"/");
+				$request_uri = preg_split("#\/\w#",$request_uri);
 				$controller  = $request_uri[0];
 				$action      = $request_uri[1];
 				
@@ -40,19 +44,22 @@ class Router
 		{
 			include("controllers/error_controller.php");
 			$controller_instance = new error_controller();
+			$error_info = ["TRACE" => $e->getTraceAsString()];
 			
 			if($e instanceof ActionException)
 			{
-				$controller_instance->bad_action();
+				$error_info[] = ["ERROR_CODE" => "ACTION_EXCEPTION"];
 			}
-			else if($e instanceof ControllerException)
+			else if($e instanceof ControllerNotFoundException)
 			{
-				$controller_instance->bad_controller();
+				$error_info[] = ["ERROR_CODE" => "CONTROLLER_EXCEPTION"];
 			}
 			else
 			{
-				$controller_instance->unknown_error();
+				$error_info[] = ["ERROR_CODE" => "UNKNOWN_EXCEPTION"];
 			}
+			
+			$controller_instance->index_action($error_info);
 		}
 
 	}

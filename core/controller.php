@@ -8,9 +8,4 @@ class Controller
 	{
 		$this->view = new View;
 	}
-	
-	public function index_action()
-	{
-		;
-	}
 }

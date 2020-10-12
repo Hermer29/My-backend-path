@@ -31,7 +31,10 @@
 			</p>
 		</div>
 		<div class="errorcode">
-			<?php echo $_SESSION["data"]["errorcode"]; ?>
-		<div>
+			<?php 
+			$data = $_SESSION["data"];
+			echo $data["ERROR_CODE"]."<br>".$data["TRACE"];
+			?>
+		</div>
 	</body>
 </html>

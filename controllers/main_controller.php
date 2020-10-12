@@ -8,7 +8,7 @@ class main_controller extends Controller
 		$this->view->generate(
 			"pattern",
 			"main",
-			array("header" => "Hello world!"));
+			["header" => "Hello world!"]);
 	}
 
 	public function login_action()
@@ -16,7 +16,7 @@ class main_controller extends Controller
 		$this->view->generate(
 			"pattern",
 			"main",
-			array("header" => "Hello world!"));
+			["header" => "Hello world!"]);
 	}
 
 }

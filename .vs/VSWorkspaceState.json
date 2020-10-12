@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\controllers",
+    "\\core",
+    "\\models",
+    "\\views",
+    "\\views\\views"
+  ],
+  "SelectedNode": "\\core\\route.php",
+  "PreviewInSolutionExplorer": false
+}

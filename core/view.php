@@ -1,7 +1,3 @@
-
-<!doctype html>
-<html>
-
 <?php
 class View
 {
@@ -30,5 +26,3 @@ class View
 		$_SESSION["data"] = $data;
 	}
 }
-?>
-</html>
