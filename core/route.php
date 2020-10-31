@@ -1,15 +1,88 @@
 <?php
 include("core/exceptions.php");
 
+
+class Pathfinder
+{
+	private $controller;
+
+	private function __construct(string $controller)
+	{
+		$controller_classname =
+		strtolower($controller).
+		"_controller";
+		
+		$controller_filename  =
+		"/controllers/".
+		$controller_classname.
+		".php";
+		
+		if(file_exists($controller_filename))
+		{
+			include($controller_filename);
+			$this -> controller = new $controller_classname();
+		}
+		else
+		{
+			throw new ControllerException("No such controller in controller's folder");
+		}
+	}
+	
+	private function find_action(string $action)
+	{
+		$action_name = $action . "_action";
+		
+		if(method_exists($this -> controller,$action_name))
+		{
+			return $this -> controller -> $action_name();
+		}
+		else if($action == null)
+		{
+			return $this -> controller -> index_action();
+		}
+		else
+		{
+			throw new ActionException("No such method in controller class");
+		}
+	}
+	
+	
+}
+
+class UriCutter
+{
+	public function get_uri()
+	{
+		$uri = $_SERVER["REQUEST_URI"];
+		$uri = trim("/",$uri);
+		return explode("/", $uri);
+	}
+}
+
 class Router
 {
-	public function find_route()
+	
+	public static function find_route()
 	{
 		try
 		{
-			$uri = explode("/",$_SERVER["REQUEST_URI"]);
-			$controller = $uri[0];
-			$action = $uri[1];
+			$uri_handler = new UriCutter();
+			$uri = $uri_handler -> get_uri();
+			print_r($uri);
+
+			$controller;
+			$uri;
+			
+			if(count($uri) == 1)
+			{
+				$controller = $uri[0];
+				$action = "index_action";
+			}
+			else if(count($uri) == 2)
+			{
+				$controller = $uri[0];
+				$action = $uri[1];
+			}
 			
 			if($controller == null)
 			{
@@ -17,19 +90,10 @@ class Router
 				exit;
 			}
 
-			$controller_instance = 
-				Router::find_controller($controller);
+			$pathfinder = new Pathfinder($controller);
 		
-			Router::find_action(
-				$action, 
-				$controller_instance);
-		
-			$model_classname = $controller;
-		
-			$model_filename = 
-				"models/".
-				$model_classname.
-				"_model.php";
+			$pathfinder -> find_action($action);
+			exit;
 		}
 		catch (Exception $e)
 		{
@@ -49,56 +113,11 @@ class Router
 				$controller_instance->unknown_error();
 			}
 		}
-
+	}	
+	
+	public static function index()
+	{
+		
+		exit;
 	}
-		public function index()
-		{
-			include("controllers/main_controller.php");
-			$controller_instance = new main_controller();
-			$controller_instance -> index_action();
-		}
-
-		public function find_action(string $action, Controller $controller)
-		{
-			$action_name = $action . "_action";
-			
-			if(method_exists($controller,$action_name))
-			{
-				return $controller -> $action_name();
-			}
-			else if($action == null)
-			{
-				return $controller -> index_action;
-			}
-			else
-			{
-				throw new ActionException("No such method in controller class");
-			}
-		}
-		
-		public function find_controller(string $controller)
-		{
-			$controller_classname = 
-				strtolower($controller).
-				"_controller";
-
-			$controller_filename  =
-				"/controllers/".
-				$controller_classname.
-				".php";
-
-			if(file_exists($controller_filename))
-			{
-				include($controller_filename);
-				$controller_instance = new $controller_classname();
-				return $controller_instance;
-			}
-			else
-			{
-				throw new ControllerException("No such controller in controller's folder");
-			}
-		}
-
-		
-		
 }
